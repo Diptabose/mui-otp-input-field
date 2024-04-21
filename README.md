@@ -30,7 +30,7 @@ const MyComponent = () => {
     setOtp(newValue);
   };
 
-  return <MuiOtp value={otp} onnChange={handleChange} />;
+  return <MuiOtp value={otp} onChange={handleChange} />;
 };
 ```
 
@@ -126,7 +126,7 @@ The library is built with typescript.
      <td><i>CSSProperties</i></td>
      <td>optional</td>
      <td><code>display:"flex", alignItems:"center", gap:"2px"</code></td>
-     <td>The stlyles to the wrapper which is used when seperator is included.</td>
+     <td>The styles to the wrapper which is used when seperator is included.</td>
   </tr>
 </table>
 
@@ -134,14 +134,15 @@ The library is built with typescript.
 <h2>Hooks</h2>
 <b>Note:</b> These hooks are used for internal purposes. External usage of this may lead to unexpected behaviour. Its highly suggested to turn off the enableFocus in the MuiOtp component before using these hooks.
 
-<h4>useFocus</h4>
+<h3>useFocus</h3>
 Returns a function named focus, to handle the focusing of the inputs based on index.
 
 <h4>useInitialFocus</h4>
+Used to focus the first input on load.
 
+<b>Note:</b>
 Default selector for these hooks is "otp-container"
 
-Used to focus the first input on load.
 
 <h3>🐛 Bugs</h3>
 
