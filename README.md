@@ -102,7 +102,7 @@ The library is built with typescript.
      <td><i>boolean</i></td>
      <td>optional</td>
      <td>true</td>
-     <td>Allows auto focus of the next input when enetered value in previous one.</td>
+     <td>Allows auto focus of the next input when entered value in previous one.</td>
   </tr>
 
  <tr>
