@@ -10,7 +10,7 @@ export interface MuiOtpContainerProps {
     seperator?: ReactNode
     onChange?: (otp: string) => void
     onComplete?: (otp: string) => void
-    value: string | number
+    value?: string | number
     containerStyles?: CSSProperties,
     wrapperStyles?: CSSProperties,
     MuiTextFieldProps?: MuiTextFieldProps

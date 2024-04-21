@@ -66,7 +66,7 @@ The library is built with typescript.
      <td><i>string</i></td>
      <td>optional</td>
      <td>""</td>
-     <td>An optional value to initialize the OTP component with a default .This is optional because the container component maintains a state for the inputs.</td>
+     <td>A value to initialize the MuiOtp component. This is optional because the container component maintains a state for the inputs.</td>
   </tr>
     <tr>
      <td>onChange</td>

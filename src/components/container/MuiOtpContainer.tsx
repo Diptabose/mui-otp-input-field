@@ -16,6 +16,8 @@ export const MuiOtp = ({
   enableFocus = true,
   type = "text",
 }: MuiOtpContainerProps) => {
+
+
   const [otp, setOtp] = useState<string>(value.toString());
 
   useInitialFocus({
@@ -56,10 +58,13 @@ export const MuiOtp = ({
     }
   }
 
+
+  
+
   return (
     <div
       id="otp-container"
-      style={{ ...containerStyles, display: "flex" , gap:"5px"}}
+      style={{ ...containerStyles, display: "flex", gap: "5px" }}
       onKeyDown={handleOnKeyDown}
     >
       {Array.from({ length }).map((_, index) => {
