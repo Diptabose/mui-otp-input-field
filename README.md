@@ -137,7 +137,7 @@ The library is built with typescript.
 <h3>useFocus</h3>
 Returns a function named focus, to handle the focusing of the inputs based on index.
 
-<h4>useInitialFocus</h4>
+<h3>useInitialFocus</h3>
 Used to focus the first input on load.
 
 <b>Note:</b>
