@@ -6,7 +6,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![ts](https://img.shields.io/badge/Built_with-Typescript-blue)
-![npm](https://img.shields.io/badge/npm-v1.0.8-blue)
+![npm](https://img.shields.io/badge/npm-v1.0.9-blue)
 
 </div>
 
