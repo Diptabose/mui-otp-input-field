@@ -3,7 +3,8 @@
 import { CSSProperties, ReactNode, } from 'react';
 import { MuiTextFieldProps } from "../textfield"
 
-export type InputTypes = "text" | "number" | "password"
+export type InputTypes = "text" | "number" | "password" | "tel"
+
 
 export interface MuiOtpContainerProps {
     length: number
