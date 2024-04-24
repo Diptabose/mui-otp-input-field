@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 
 
@@ -12,8 +12,9 @@ export interface UseFocusProps {
 
 export const useFocus = ({
     enable,
-    selector = 'otp-container'
+    selector = 'otp-container',
 }: UseFocusProps) => {
+
 
 
     const focus = useCallback((index: number) => {
@@ -26,6 +27,10 @@ export const useFocus = ({
             }
         }
     }, [])
+
+
+
+
 
     return { focus }
 
