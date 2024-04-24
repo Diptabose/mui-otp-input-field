@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useFocus, useInitialFocus } from "../../hooks";
 import OtpTextField from "../textfield";
 import { MuiOtpContainerProps } from "./MuiOtpContainer.types";
-import { mutateString } from "../../utils";
+import { getValidCharacters, mutateString } from "../../utils";
 
 export const MuiOtp = ({
   length,
@@ -11,12 +11,14 @@ export const MuiOtp = ({
   onComplete,
   seperator,
   containerStyles,
-  wrapperStyles,
   MuiTextFieldProps,
   enableFocus = true,
   type = "text",
 }: MuiOtpContainerProps) => {
-  const [otp, setOtp] = useState<string>(value.toString());
+  const isNumeric = type === "number" || type === "tel";
+  const [otp, setOtp] = useState<string>(
+    getValidCharacters(isNumeric, value.toString())
+  );
 
   useInitialFocus({
     enable: enableFocus,
@@ -30,7 +32,11 @@ export const MuiOtp = ({
     value = value.slice(-1) ?? "";
     const mutatedString = mutateString(otp, value, index);
     setOtp(mutatedString);
-    const nextFocusedIndex = mutatedString.length;
+
+    const nextFocusedIndex = forward
+      ? mutatedString.length
+      : mutatedString?.length - 1;
+
     focus(nextFocusedIndex);
     onChange && onChange(mutatedString);
     if (mutatedString.length === length) {
@@ -39,24 +45,8 @@ export const MuiOtp = ({
   }
 
   function handlePaste(value: string) {
-    // Check the validity of the inputs and put those inputs which are valid.
     setOtp(value.slice(0, length));
   }
-
-  // function handleOnKeyDown(event: any) {
-  //   const e = event as KeyboardEvent;
-  //   if (e.key === "Backspace" && otp.length >= 1) {
-  //     const value = otp;
-  //     const length = value.length;
-  //     const focusingIndex = length - 1;
-  //     if (otp[focusingIndex]) {
-  //       const updatedValue = value.slice(0, focusingIndex);
-  //       focus(focusingIndex);
-  //       setOtp(updatedValue);
-  //       onChange && onChange(updatedValue);
-  //     }
-  //   }
-  // }
 
   return (
     <div
