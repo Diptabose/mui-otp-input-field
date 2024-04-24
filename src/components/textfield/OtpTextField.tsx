@@ -37,11 +37,8 @@ const OtpTextField = ({
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     let value = event.target.value;
-    console.log("The data is ", value);
     if (isValid(isNumeric, value)) {
       const forward = value ? true : false;
-      console.log("The forward is ", forward);
-      console.log(forward, index);
       handleChange(value, index, forward);
     }
   }

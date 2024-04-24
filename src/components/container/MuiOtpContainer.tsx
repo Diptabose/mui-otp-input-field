@@ -15,7 +15,7 @@ export const MuiOtp = ({
   enableFocus = true,
   type = "text",
 }: MuiOtpContainerProps) => {
-  const isNumeric = type === "number" || type === "tel";
+  const isNumeric = type === "number";
   const [otp, setOtp] = useState<string>(
     getValidCharacters(isNumeric, value.toString())
   );
@@ -38,14 +38,20 @@ export const MuiOtp = ({
       : mutatedString?.length - 1;
 
     focus(nextFocusedIndex);
-    onChange && onChange(mutatedString);
-    if (mutatedString.length === length) {
-      onComplete && onComplete(mutatedString);
-    }
+    dispatchEvents(mutatedString);
   }
 
   function handlePaste(value: string) {
-    setOtp(value.slice(0, length));
+    const otp = value.slice(0, length);
+    setOtp(otp);
+    dispatchEvents(otp);
+  }
+
+  function dispatchEvents(value: string) {
+    onChange && onChange(value);
+    if (value.length === length) {
+      onComplete && onComplete(value);
+    }
   }
 
   return (
